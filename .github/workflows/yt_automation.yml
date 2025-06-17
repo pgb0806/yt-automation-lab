@@ -43,4 +43,5 @@ jobs:
             --video_url "${{ github.event.inputs.video_url }}" \
             --music_url "${{ github.event.inputs.music_url }}" \
             --text "${{ github.event.inputs.text }}" \
-            --author "${{ github.event.inputs.author }}"
+            --author "${{ github.event.inputs.author }}"\
+            --reference "${{github.event.inputs.reference}}"
