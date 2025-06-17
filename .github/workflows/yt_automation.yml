@@ -18,6 +18,10 @@ on:
         description: "Author"
         required: true
         default: ""
+      reference:
+        description: "Reference"
+        required: true
+        default: ""
 
 jobs:
   build:
