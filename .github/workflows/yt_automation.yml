@@ -1,0 +1,46 @@
+name: YT Automation
+on:
+  workflow_dispatch:
+    inputs:
+      video_url:
+        description: "Background video link"
+        required: true
+        default: ""
+      music_url:
+        description: "Music link"
+        required: true
+        default: ""
+      text:
+        description: "Quote text"
+        required: true
+        default: ""
+      author:
+        description: "Author"
+        required: true
+        default: ""
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install FFmpeg
+        run: sudo apt-get update && sudo apt-get install -y ffmpeg
+
+      - name: Install Python Dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run Automation
+        run: |
+          python generate_video.py \
+            --video_url "${{ github.event.inputs.video_url }}" \
+            --music_url "${{ github.event.inputs.music_url }}" \
+            --text "${{ github.event.inputs.text }}" \
+            --author "${{ github.event.inputs.author }}"
