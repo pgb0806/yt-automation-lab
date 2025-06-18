@@ -16,11 +16,11 @@ on:
         default: ""
       author:
         description: "Author"
-        required: true
+        required: false
         default: ""
       reference:
         description: "Reference"
-        required: true
+        required: false
         default: ""
 
 jobs:
