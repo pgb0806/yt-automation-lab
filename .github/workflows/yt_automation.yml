@@ -49,3 +49,10 @@ jobs:
             --text "${{ github.event.inputs.text }}" \
             --author "${{ github.event.inputs.author }}"\
             --reference "${{github.event.inputs.reference}}"
+      
+      - name: Upload Video Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: generated-video
+          path: output.mp4
+
